@@ -1,7 +1,7 @@
 # -*- org-list-allow-alphabetical: t; -*-
 #+TITLE: Potenser och logaritmer
 #+DATE:
-#+AUTHOR: Jesper larsson \enspace \textit{v. 0.9 (aug. 2017)}
+#+AUTHOR: Jesper larsson \enspace \textit{v. 1.0 (aug. 2017)}
 #+LANGUAGE: sv
 #+LATEX_COMPILER: lualatex
 #+OPTIONS: toc:nil ^:{} broken-links:mark num:0
