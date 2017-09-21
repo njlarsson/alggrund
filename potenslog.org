@@ -1,7 +1,7 @@
 # -*- org-list-allow-alphabetical: t; -*-
 #+TITLE: Potenser och logaritmer
 #+DATE:
-#+AUTHOR: Jesper larsson \enspace \textit{v. 1.0 (aug. 2017)}
+#+AUTHOR: Jesper larsson \enspace \textit{v. 1.02 (sep. 2017)}
 #+LANGUAGE: sv
 #+LATEX_COMPILER: lualatex
 #+OPTIONS: toc:nil ^:{} broken-links:mark num:0
@@ -20,30 +20,30 @@ för upprepad multiplikation:
 
 \[x^n = \underbrace{x \cdot x \cdot x\cdot \quad \cdots \quad \cdot x}_{n\text{ stycken }x}\]
 
-Direkt av definitionen följer (kontrollera varför det blir så genom att skriva om potenserna som
-upprepad multiplikation):
+Direkt av definitionen får vi följande. Kontrollera varför det blir så genom att skriva om potenserna som
+upprepad multiplikation!
 \[x^n \cdot x^m = x^{n+m}\]
 och
 \[\dfrac{x^n}{x^m} = x^{n-m}\]  
 
-För bekvämlighets skull utvidgar vi definitionen till exponenter
-mindre än ett: $x^0 = 1$ för alla $x$ utom $0$, och $x^{-n} = 1 /
-x^n$ (kontrollera att det funkar i formlerna).
+För bekvämlighets skull tillåter vi exponenten att vara mindre än ett, enligt
+definition: $x^0 = 1$ för alla $x$ utom $0$, och $x^{-n} = 1 / x^n$. Kontrollera
+att det stämmer med formlerna ovan!
 
-Exponenten behöver inte vara ett heltal heller. Enligt vad vi redan sagt bör vi
-ha $x^{1/2} \cdot x^{1/2} = x^{1/2 + 1/2} = x$. Det uppfylls bara om vi
-definierar $x^{1/2} = \sqrt{x}$. Enligt samma argument är $x^{1/3} =
-\sqrt[3]{x}$.
+Exponenten behöver inte alltid vara ett heltal. Vi kan till exempel hitta en
+vettig betydelse för $x^{1/2}$. Vi bör ju ha $x^{1/2}\cdot x^{1/2} = x^{1/2 +
+1/2} = x$. Det uppfylls bara om vi definierar $x^{1/2} = \sqrt{x}$. Enligt samma
+argument är $x^{1/3} = \sqrt[3]{x}$.
 
 * Logaritm
 
 /Logaritmering/ är motsatsen till exponentiering. Vi definierar logaritmen i bas
-$b$, 
+$b$, eller 
 $b\text{\emph{-logaritmen}}$, av $x$ som det tal $n$ som gör att $b^{n}=x$. Alltså:
-\[\log_b x = n \qquad \Longleftrightarrow \qquad b^n = x\]
+\[\log_b x = n \qquad \text{betyder att} \qquad b^n = x\]
 
-Memorera det!
-(Med andra ord: $b^{log_b x} = x$, tänk efter varför det säger samma sak.)
+Memorera den definitionen! Kan också uttryckas $b^{log_b x} = x$ (tänk
+efter varför).
 
 Ett mer handfast sätt att förklara logaritm är följande: om
 man börjar med $x$, delar med $b$, sedan delar resultatet av det med $b$, och
@@ -59,19 +59,18 @@ stämmer med definitionen.)
 basen i vårt vanliga talsystem) och den /naturliga logaritmen/, med
 basen $e \approx 2.71828$ (intressant därför att $x^e$, /exponentialfunktionen/,
 har speciella matematiska egenskaper). Men när vi datavetare talar om logaritm
-menar vi nästan alltid /tvålogaritmen/ (eller ibland någon logaritm vilken som
-helst). Därför definierar vi en kortform för $2\text{-logaritmen}$:
+menar vi för det mesta /tvålogaritmen/. Därför definierar vi en kortform för $2\text{-logaritmen}$:
 \[\lg x = \log_2 x\]
 Det är inte alla som använder $\lg$ som $\log_2$, men vår kursbok och många
 andra gör det.
 
-När $x$ är en potens av två (alltså $x = 2^n$ för något heltal $n$),
-är $\lg x$ ett heltal. Men vi behöver inte begränsa $\lg x$ med att kräva att $x$
-en potens av två: enligt vad vi sagt ovan är ju till exempel $2^{1/2} =
-\sqrt{2}$, så $\lg \sqrt{2}
-= 1/2$.
-
 ** Avrundning
+
+När $x$ är en potens av två (alltså $x = 2^n$ för något heltal $n$),
+är $\lg x$ ett heltal. Men det är meningsfullt att tala om $\lg x$ för andra tal
+också. Bara som ett exempel vet vi ju redan att $2^{1/2} =
+\sqrt{2}$, så $\lg (\sqrt{2})
+= 1/2$.
 
 Den generella definitionen av logaritmer för positiva tal hoppar vi över,
 men vi kan behöva resonera om /mellan/ vilka värden de måste ligga. Om a, b och
@@ -95,8 +94,7 @@ logaritm man menar):
   \log x^y &=& y\log x
 \end{eqnarray*}
 Försök att själv klura ut varför det blir så, och memorera sedan dessa
-lagar.De är mycket användbart att kunna utantill för att snabbt kunna använda
-till att se samband.
+lagar. De är mycket användbara att kunna utantill för att snabbt kunna använda.
 
 ** Basbyte
 

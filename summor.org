@@ -1,7 +1,7 @@
 # -*- org-list-allow-alphabetical: t; -*-
 #+TITLE: Summanotation och några viktiga summor
 #+DATE:
-#+AUTHOR: Jesper larsson \enspace \textit{v. 1.0 (aug. 2017)}
+#+AUTHOR: Jesper Larsson \ensp /v. 1.0 (aug. 2017)/
 #+LANGUAGE: sv
 #+LATEX_COMPILER: lualatex
 #+OPTIONS: toc:nil ^:{} broken-links:mark num:0
@@ -15,7 +15,7 @@
 * Notation
 
 ”Stora-sigma-notationen” för summor kan verka respektingivande för ovana matematikläsare, men den är inget
-annat än matematikens sätt att skriva vad som i de flesta programspråk skulle ha
+annat än matematikens sätt att skriva något som i de flesta programspråk skulle ha
 varit en /for/-loop. Under summatecknet står /loopvariabel = startvärde/,
 ovanpå står /slutvärde/, och till höger står uttrycket för varje term i
 summan. Termen brukar innehålla loopvariabeln någonstans, så att värdena av termerna
@@ -32,10 +32,9 @@ det till exempel ser ut så här: $\sum_{i=5}^{10} 2i$.
 Mer generellt, om vi kallar term nummer $i$ för $t_i$ så är:
 \[\sum_{i=a}^{b} t_i \; = \; t_{a} + t_{a+1} + t_{a+2} + \cdots + t_{b-1} + t_b\]
 
-En variant är:
-\[\sum_{i \in S} t_i\]
-Här utläses tecknet $\in$ som /tillhör/ eller /i/, och $S$ är en mängd. Summan får en
-term för vart och ett av elementen i $S$. En mängd kan man ange genom att räkna upp elementen med komma emellan och
+En variant är: \[\sum_{i \in S} t_i\] Här utläses tecknet $\in$ som /tillhör/,
+och $S$ är en mängd. Vad vi säger är ”summan av $t_i$ för alla $i$ som finns i
+$S$”. En mängd kan man ange genom att räkna upp elementen med komma emellan och
 omge dem med ”{” och ”}”, så $\sum_{i\in\{a, \ldots, b\}} t_i$ betyder precis
 detsamma som $\sum_{i=a}^{b} t_i$. Ytterligare ett sätt att skriva samma sak är
 $\sum_{i=a\ldots b} t_i$.
@@ -47,7 +46,7 @@ och med skriva bara $\sum_i t_i$, med betydelsen ”summan av $t_i$ för alla $i
 
 Ett plus två plus tre, och så vidare, upp till $N$, alltså $1+2+3+\cdots + N$:
 
-\[\sum_{i=1}^N i \; =\; \dfrac{N(N+1)}{2}\]
+\[\sum_{i=1}^N i \; =\; \frac{N(N+1)}{2}\]
 
 Varför är summan $N(N+1)/2$? I följande figur är antalet fyllda cirklar lika med
 summan. Vi har $N+1$ rader av $N$ cirklar. I första raden är
@@ -94,7 +93,7 @@ Ett annat sätt att skriva $N(N+1)/2$ är $\frac{1}{2}N^2 + \frac{1}{2}N$. I
 algoritmanalys struntar vi normalt i alla termer utom den som har högst exponent
 på $N$, eftersom de är försvinnande små när $N$ är stort. Vi nöjer oss
 alltså nästan alltid med att konstatera att
-\[\sum_{i=1}^N i \; \sim\; \dfrac{1}{2}N^2\]
+\[\sum_{i=1}^N i \; \sim\; \frac{1}{2}N^2\]
 Ofta kan vi dessutom strunta i konstanten framför $N^2$, och nöja oss med att säga att summan
 växer med $N^2$ – med andra ord att summan är /kvadratisk i $N$/. Vi kan till och med
 nöja oss med att summan är /högst/ kvadratisk i $N$, och säga att summan är
@@ -133,7 +132,7 @@ Faktiskt inte alltid: om termerna blir mindre och mindre efter hand, och om de
 blir mindre /tillräckligt snabbt/, så /konvergerar/ summan och blir ändlig.
 
 En summa som konvergerar är en halv plus en fjärdedel plus en åttondel och så vidare i all oändlighet:
-\[\sum_{i=1}^{\infty} \dfrac{1}{2^i} = 1\]
+\[\sum_{i=1}^{\infty} \frac{1}{2^i} = 1\]
 Summan kan också skrivas $\sum_{i=1}^{\infty} 2^{-i}$.
 
 Varför är summan $1$? För att visa det, tänk istället att vi börjar från $1$ och
@@ -148,11 +147,11 @@ komma ner till noll.
 Ett annat sätt att visa att detta stämmer: börja med $1$, dela upp i två halvor,
 och fortsätt sedan dela upp den sista termen i halvor i all oändlighet:
 \[\begin{split}
-1 \; &=\; \dfrac{1}{2} + \dfrac{1}{2} \;=\; \dfrac{1}{2} +\dfrac{1}{4} +
-\dfrac{1}{4} \;=\; \dfrac{1}{2} + \dfrac{1}{4} +
-\dfrac{1}{8}+ \dfrac{1}{8} \;=\; \\
-&=\; \dfrac{1}{2} + \dfrac{1}{4} +
-\dfrac{1}{8}+ \dfrac{1}{16}+ \dfrac{1}{16} \;=\; \cdots \;=\; \sum_{i=1}^{\infty} \dfrac{1}{2^i}
+1 \; &=\; \frac{1}{2} + \frac{1}{2} \;=\; \frac{1}{2} +\frac{1}{4} +
+\frac{1}{4} \;=\; \frac{1}{2} + \frac{1}{4} +
+\frac{1}{8}+ \frac{1}{8} \;=\; \\
+&=\; \frac{1}{2} + \frac{1}{4} +
+\frac{1}{8}+ \frac{1}{16}+ \frac{1}{16} \;=\; \cdots \;=\; \sum_{i=1}^{\infty} \frac{1}{2^i}
 \end{split}\]
 
 

@@ -1,0 +1,140 @@
+% Created 2017-09-01 Fri 10:24
+% Intended LaTeX compiler: lualatex
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[swedish]{babel}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\usepackage{enumerate}
+\frenchspacing
+\setcounter{secnumdepth}{0}
+\author{Jesper larsson \enspace \textit{v. 1.01 (aug. 2017)}}
+\date{}
+\title{Potenser och logaritmer}
+\hypersetup{
+ pdfauthor={Jesper larsson \enspace \textit{v. 1.01 (aug. 2017)}},
+ pdftitle={Potenser och logaritmer},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.0.9)}, 
+ pdflang={Swedish}}
+\begin{document}
+
+\maketitle
+
+\section*{Potens/exponentiering}
+\label{sec:org541d7b1}
+
+En \emph{potens} i matematiken skrivs \(x^{n}\), (\emph{\(x\) upphöjt till \(n\)}) där
+\(x\) kallas \emph{basen} och \(n\) \emph{exponenten}. Sådan \emph{exponentiering} är en kortform
+för upprepad multiplikation:
+
+\[x^n = \underbrace{x \cdot x \cdot x\cdot \quad \cdots \quad \cdot x}_{n\text{ stycken }x}\]
+
+Direkt av definitionen får vi följande. Kontrollera varför det blir så genom att skriva om potenserna som
+upprepad multiplikation!
+\[x^n \cdot x^m = x^{n+m}\]
+och
+\[\dfrac{x^n}{x^m} = x^{n-m}\]  
+
+För bekvämlighets skull tillåter exponenten att vara mindre än ett, enligt
+definition: \(x^0 = 1\) för alla \(x\) utom \(0\), och \(x^{-n} = 1 / x^n\). Kontrollera
+att det stämmer med formlerna ovan!
+
+Exponenten behöver inte alltid vara ett heltal. Vi kan till exempel hitta en
+vettig betydelse för \(x^{1/2}\). Vi bör ju ha \(x^{1/2}\cdot x^{1/2} = x^{1/2 +
+1/2} = x\). Det uppfylls bara om vi definierar \(x^{1/2} = \sqrt{x}\). Enligt samma
+argument är \(x^{1/3} = \sqrt[3]{x}\).
+
+\section*{Logaritm}
+\label{sec:org8da2d70}
+
+\emph{Logaritmering} är motsatsen till exponentiering. Vi definierar logaritmen i bas
+\(b\), eller 
+\(b\text{\emph{-logaritmen}}\), av \(x\) som det tal \(n\) som gör att \(b^{n}=x\). Alltså:
+\[\log_b x = n \qquad \text{betyder att} \qquad b^n = x\]
+
+Memorera den definitionen! Kan också uttryckas \(b^{log_b x} = x\) (tänk
+efter varför).
+
+Ett mer handfast sätt att förklara logaritm är följande: om
+man börjar med \(x\), delar med \(b\), sedan delar resultatet av det med \(b\), och
+fortsätter att dela med \(b\) tills man får \(1\), 
+så är \(\log_b x\) antalet divisioner man har utfört. Det funkar
+dock bara om \(x\) är en potens av \(b\), alltså \(x=b^n\) för något heltal \(n\), annars
+kommer man aldrig exakt till \(1\).  (Tänk efter varför den här förklaringen
+stämmer med definitionen.)
+
+\subsection*{Tvålogaritm}
+\label{sec:orgaa845a5}
+
+   De flesta har antagligen stött på \emph{tiologaritmen} (intressant för att tio är
+basen i vårt vanliga talsystem) och den \emph{naturliga logaritmen}, med
+basen \(e \approx 2.71828\) (intressant därför att \(x^e\), \emph{exponentialfunktionen},
+har speciella matematiska egenskaper). Men när vi datavetare talar om logaritm
+menar vi för det mesta \emph{tvålogaritmen}. Därför definierar vi en kortform för \(2\text{-logaritmen}\):
+\[\lg x = \log_2 x\]
+Det är inte alla som använder \(\lg\) som \(\log_2\), men vår kursbok och många
+andra gör det.
+
+\subsection*{Avrundning}
+\label{sec:org57038d2}
+
+När \(x\) är en potens av två (alltså \(x = 2^n\) för något heltal \(n\)),
+är \(\lg x\) ett heltal. Men det är meningsfullt att tala om \(\lg x\) för andra tal
+också. Bara som ett exempel vet vi ju redan att \(2^{1/2} =
+\sqrt{2}\), så \(\lg (\sqrt{2})
+= 1/2\).
+
+Den generella definitionen av logaritmer för positiva tal hoppar vi över,
+men vi kan behöva resonera om \emph{mellan} vilka värden de måste ligga. Om a, b och
+c är tre positiva tal sådana att \(a < b < c\) så gäller också \(\lg a < \lg b
+< \lg c\) (tänk efter varför). Är vi till exempel intresserade av värdet på \(\lg 10\) är kan vi
+konstatera att \(2^3 < 10 < 2^4\), och att \(\lg 10\) därför måste vara ett tal
+mellan \(3\) och \(4\). Ofta kan vi nöja oss så, och använda den här
+notationen för att avrunda upp eller ner:
+\begin{align*}
+\lfloor x \rfloor: & \quad \text{\emph{golvet} av $x$: det största heltalet $ \le x$ \enskip (avrundning nedåt)} \\
+\lceil x \rceil: & \quad \text{\emph{taket} av $x$: det minsta heltalet $ \ge x$ \enskip (avrundning uppåt)}
+\end{align*}
+Så exempelvis är \(\lfloor \lg 10 \rfloor = 3\) och \(\lceil \lg 10 \rceil = 4\).
+
+\subsection*{Viktiga logaritmlagar}
+\label{sec:org2959031}
+
+Följande formler följer av definitionen av logaritm (här anges ingen bas för logaritmerna eftersom formlerna gäller oavsett vilken
+logaritm man menar):
+\begin{eqnarray*}
+  \log (x\cdot y) &=& \log x + \log y \\
+  \log x^y &=& y\log x
+\end{eqnarray*}
+Försök att själv klura ut varför det blir så, och memorera sedan dessa
+lagar. De är mycket användbara att kunna utantill för att snabbt kunna använda.
+
+\subsection*{Basbyte}
+\label{sec:org08d5dc3}
+
+En sista viktig formel: eftersom \(x = a^{\log_a x}\):
+\[\log_b x = \log_b a^{\log_a x} = (\log_b a)\cdot (\log_a x)\]
+Det betyder, eftersom \(\log_b a\) är en konstant som bara beror på \(a\) och \(b\),
+att logaritmer i olika baser bara skiljer sig åt med en konstant faktor, alltså
+\[\log_b x = k\cdot \log_a x\]
+där \(k\) är en konstant som bestäms av \(a\) och \(b\).
+
+Exempelvis är \(\lg x \approx 3,32\cdot\log_{10}x\) (vilket innebär att ett tal i
+det binära talsystemet får ungefär \(3,32\) gånger fler siffror än samma tal i det vanliga decimala).
+
+I algoritmanalysjargong kan man uttrycka det så att alla logaritmer
+\emph{asymptotiskt växer lika snabbt}. Därför kan man ibland nöja sig med att säga
+\(\log\) utan att specificera basen.
+\end{document}
