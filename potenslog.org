@@ -57,7 +57,7 @@ stämmer med definitionen.)
 
    De flesta har antagligen stött på /tiologaritmen/ (intressant för att tio är
 basen i vårt vanliga talsystem) och den /naturliga logaritmen/, med
-basen $e \approx 2.71828$ (intressant därför att $x^e$, /exponentialfunktionen/,
+basen $e \approx 2.71828$ (intressant därför att $e^x$, /exponentialfunktionen/,
 har speciella matematiska egenskaper). Men när vi datavetare talar om logaritm
 menar vi för det mesta /tvålogaritmen/. Därför definierar vi en kortform för $2\text{-logaritmen}$:
 \[\lg x = \log_2 x\]
