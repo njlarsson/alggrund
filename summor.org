@@ -1,7 +1,7 @@
 # -*- org-list-allow-alphabetical: t; -*-
 #+TITLE: Summanotation och några viktiga summor
 #+DATE:
-#+AUTHOR: Jesper Larsson \ensp /v. 1.0 (aug. 2017)/
+#+AUTHOR: Jesper Larsson \ensp /v. 1.1 (aug. 2020)/
 #+LANGUAGE: sv
 #+LATEX_COMPILER: lualatex
 #+OPTIONS: toc:nil ^:{} broken-links:mark num:0
@@ -10,6 +10,7 @@
 #+LATEX_HEADER: \usepackage{fontspec}
 #+LATEX_HEADER: \setmainfont[Ligatures=TeX]{Linux Libertine O}
 #+LATEX_HEADER: \usepackage{enumerate}
+#+LATEX_HEADER: \usepackage[textwidth=14cm]{geometry}
 #+LATEX_HEADER_EXTRA: \frenchspacing
 
 * Notation
@@ -48,10 +49,9 @@ Ett plus två plus tre, och så vidare, upp till $N$, alltså $1+2+3+\cdots + N$
 
 \[\sum_{i=1}^N i \; =\; \frac{N(N+1)}{2}\]
 
-Varför är summan $N(N+1)/2$? I följande figur är antalet fyllda cirklar lika med
-summan. Vi har $N+1$ rader av $N$ cirklar. I första raden är
-alla fyllda, i andra raden alla utom en, och så vidare, och i sista raden är
-ingen fylld.
+Varför är summan $N(N+1)/2$? Här är ett sätt att se det: Gå nerifrån och upp i
+följande figur, och lägg samman de fyllda cirklarna rad för rad. Som synes blir
+det  $1+2+3+\cdots + N$ stycken. 
 
 |   $N$: | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ |
 | $N-1$: | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\bullet$ | $\circ$   |
@@ -64,11 +64,11 @@ ingen fylld.
 |     0: | $\circ$   | $\circ$   | $\circ$   | $\circ$   | $\circ$   | $\circ$   | $\circ$   | $\circ$   |
 |    <r> |           |           |           |           |           |           |           |           |
 
-Det totala antalet
-cirklar (fyllda och tomma) är förstås $N(N+1)$, och precis hälften av dem är tomma,
-alltså $N(N+1)/2$.
+Det finns $N+1$ rader med $N$ cirklar (fyllda eller ej) i varje, alltså totalt
+$N(N+1)$. Precis hälften av dem är fyllda,
+alltså $N(N+1)/2$. 
 
-Om man föredrar ett algebraiskt bevis: börja med fallet att $N$ är ett jämnt
+Om man föredrar ett algebraiskt bevis: Börja med fallet att $N$ är ett jämnt
 tal. Gruppera ihop termerna i par. Den första, $1$, paras ihop med den sista,
 $N$. Den
 näst första, $2$, med den näst sista, $N-1$, och så vidare:
@@ -84,8 +84,7 @@ det får vi $N(N+1)/2$.
 
 \smallskip
 
-\noindent *Övning* /Visa med ett algebraiskt resonemang att summan blir
-$N(N+1)/2$ även i fallet när $N$ är udda./
+\noindent *Övning* /Modifiera resonemanget till att gälla udda $N$ istället, och visa att summan även då är $N(N+1)/2$./
 
 \smallskip
 
@@ -102,33 +101,42 @@ $O(N^2)$, vilket utläses /ordo $N^2$/.
 * Stigande tvåpotenser
 
 Ett plus två plus fyra plus åtta, och så vidare upp till $N$. Varje term,
-inklusive den sista $N$, måste vara en
-potens av två, så vi kan definiera ett heltal $k$ så att $N=2^k$, eller med andra ord
-$k=\lg N$.
+inklusive den sista $N$, är då en
+potens av två, så vi kan säga att $N=2^k$ för något hektal $k$, eller med andra ord
+$k=\lg N$. Summan har då $k+1$ termer:
 \[\sum_{i=0}^k 2^i \; =\; 2\cdot 2^k-1 \; =\; 2N-1\]
-Varför blir det $2N-1$? Vi kan testa med några rimligt små $k$ och se att det
-stämmer, till exempel: $1+2+4+8+\cdots+64 = 127$. Men hur kan vi veta att det
+Varför är summan $2N-1$? Vi kan testa med några rimligt små $k$ och se att det
+stämmer, till exempel: $1+2+4+8+\cdots+64 = 127$. Då vet vi att vi är på rätt
+spår, men det är inget bevis. Hur kan vi veta att det
 gäller alltid? Det visar vi lättast med ett /induktionsbevis/. Vi visar först
-att det stämmer i basfallet $k=0$. I vänsterledet har vi då bara en term $2^0$
-= 1. I högerledet står $2\cdot 2^0-1=2\cdot 1-1=1$, stämmer! Sedan visar vi att /om/ likheten
-gäller för $k$ så gäller den också för $k+1$. Då har vi indirekt visat att den
-också gäller för $k+2$, $k+3$, och så vidare. Det är som att visa att vi kan
-klättra upp för en hel stege genom att visa att vi kan komma till första pinnen,
-och att om vi kan komma till pinne $k$ kan vi också komma till pinne $k+1$. Då
-kan det inte finnas någon pinne vi inte kan komma till.
+att det stämmer i basfallet $k=0$. Summan får då en enda term:
+\[\sum_{i=0}^0 2^i \; =\; 2^0 \; =\; 1\]
 
-Vi antar alltså att $\sum_{i=0}^k 2^i = 2\cdot 2^k-1$, och sedan tittar vi på
-$\sum_{i=0}^{k+1} 2^i$ och försöker visa att det är $2\cdot 2^{k+1}-1$. Vi
-lösgör den sista termen ur summan, och använder att vi känner summan av de återstående termerna:
+Och $2\cdot 2^0-1=2\cdot 1-1=1$, stämmer!
+
+Sedan visar vi att /om/ likheten
+gäller för $k$ så gäller den också för $k+1$, för varje icke-negativt värde på $k$. Då har vi indirekt visat att den
+också gäller för $k=0+1=1$, $k=1+1=2$, $k=2+1=3, och så vidare. Det är som att visa att vi kan
+klättra upp för en hel stege, oavsett hur hög den är, genom att visa att vi kan komma till första pinnen,
+och att om vi kan komma till pinne $k$ kan vi också komma till pinne $k+1$.
+
+Vi antar alltså att likheten stämmer för $k$, alltså att det är sant att $\sum_{i=0}^k 2^i =
+2\cdot 2^k-1$. Sedan tittar vi på likheten med $k$ utbytt mot $k+1$ och försöker
+visa att /om/ antagandet stämmer så stämmer också den, alltså att
+$\sum_{i=0}^{k+1} 2^i = 2\cdot 2^{k+1}-1$.
+
+Vi
+lösgör den sista termen ur summan, och använder att vi enligt antagandet redan
+vet vad summan av termerna före den är:
 \[\sum_{i=0}^{k+1} 2^i = \underbrace{\left(\sum_{i=0}^{k} 2^i \right)}_{2\cdot
 2^k-1} \mathop+ 2^{k+1} =
-\underbrace{\,2\cdot 2^k}_{2^{k+1}} \mathop+ 2^{k+1} - 1 = 2\cdot 2^{k+1}-1\]
+\underbrace{\,2\cdot 2^k}_{2^{k+1}} \mathop- 1 + 2^{k+1} = 2\cdot 2^{k+1}-1\]
 Klart!
 * Avtagande tvåpotenser
 
 En summa med ett /ändligt/ antal termer, som de vi hanterat hittills, är förstås
-ändlig. Lägger vi ihop ett oändligt antal termer blir summan oändlig – eller?
-Faktiskt inte alltid: om termerna blir mindre och mindre efter hand, och om de
+ändlig. Lägger vi ihop ett /oändligt/ antal termer blir summan oändlig – eller?
+Faktiskt inte alltid: om termerna blir mindre och mindre, och om de
 blir mindre /tillräckligt snabbt/, så /konvergerar/ summan och blir ändlig.
 
 En summa som konvergerar är en halv plus en fjärdedel plus en åttondel och så vidare i all oändlighet:
